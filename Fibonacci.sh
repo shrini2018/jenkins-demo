@@ -11,25 +11,27 @@
 #                     Script Starts Here                            #
 #####################################################################
 
-if [ $# -eq 1 ]
-then
-    Num=$1
-else
-    echo -n "Enter a Number :"
-    read Num
-fi
+# Program for Fibonacci
+# Series
 
-f1=0
-f2=1
+# Static input fo N
+N=6
 
-echo "The Fibonacci sequences for the number $Num is : "
+# First Number of the
+# Fibonacci Series
+a=0
 
-for (( i=0;i<=Num;i++ ))
+# Second Number of the
+# Fibonacci Series
+b=1
+
+echo "The Fibonacci series is : "
+
+for (( i=0; i<N; i++ ))
 do
-     echo -n "$f1 "
-     fn=$((f1+f2))
-     f1=$f2
-     f2=$fn
+	echo -n "$a "
+	fn=$((a + b))
+	a=$b
+	b=$fn
 done
-
-echo
+# End of for loop
