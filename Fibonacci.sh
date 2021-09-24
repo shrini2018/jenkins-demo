@@ -15,7 +15,7 @@
 # Series
 
 # Static input fo N
-N=6
+N=10
 
 # First Number of the
 # Fibonacci Series
