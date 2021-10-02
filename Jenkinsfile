@@ -11,7 +11,7 @@ pipeline {
         stage('build'){
             steps {
                 echo "building the project"
-                C:\Program Files\Git\bin\sh "cd MavenProject ; mvn clean install ; pwd"
+                C:/Program Files/Git/bin/sh "cd MavenProject ; mvn clean install ; pwd"
             }
         }
         
@@ -27,7 +27,7 @@ pipeline {
             steps {
                 script {
                     echo "deployment"
-                    C:\Program Files\Git\bin\sh 'cp MavenProject/multi3/target/*.war /var/lib/tomcat8/webapps/'
+                    C:/Program Files/Git/bin/sh 'cp MavenProject/multi3/target/*.war /var/lib/tomcat8/webapps/'
                 }
             }
         }
@@ -48,13 +48,13 @@ pipeline {
             parallel ( "JavaNcss Report":   
             {
                 git 'https://github.com/shrini2018/jenkins-demo.git'
-                C:\Program Files\Git\bin\sh "cd javancss-master ; mvn test javancss:report ; pwd"
+                C:/Program Files/Git/bin/sh "cd javancss-master ; mvn test javancss:report ; pwd"
                   
             },
             "FindBugs Report" : {
-                C:\Program Files\Git\bin\sh "mkdir javancss1 ; cd javancss1 ;pwd"
+                C:/Program Files/Git/bin/sh "mkdir javancss1 ; cd javancss1 ;pwd"
                 git 'https://github.com/shrini2018/jenkins-demo.git'
-                C:\Program Files\Git\bin\sh "cd javancss-master ; mvn findbugs:findbugs ; pwd"
+                C:/Program Files/Git/bin/sh "cd javancss-master ; mvn findbugs:findbugs ; pwd"
                 deleteDir()
 
               }
