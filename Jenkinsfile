@@ -12,9 +12,8 @@ pipeline {
            
             steps {
                 echo "building the project"
-                sh cd "MavenProject"
-                sh mvn clean install
-                sh pwd
+                sh "cd MavenProject ; mvn clean install ; pwd"
+                
             }
         }
         
