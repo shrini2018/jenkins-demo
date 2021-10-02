@@ -9,7 +9,7 @@ pipeline {
             }
         }
         stage('build'){
-            withEnv(['PATH+EXTRA=/usr/sbin:/usr/bin:/sbin:/bin'])
+           
             steps {
                 echo "building the project"
                 sh "cd MavenProject ; mvn clean install ; pwd"
@@ -24,7 +24,7 @@ pipeline {
             
         }
         stage('Deployment') {
-            withEnv(['PATH+EXTRA=/usr/sbin:/usr/bin:/sbin:/bin'])
+           
             // Deployment
             steps {
                 script {
@@ -46,7 +46,7 @@ pipeline {
             }
         }
         stage("Metrics"){
-            withEnv(['PATH+EXTRA=/usr/sbin:/usr/bin:/sbin:/bin'])
+            
             steps{
             parallel ( "JavaNcss Report":   
             {
@@ -55,7 +55,7 @@ pipeline {
                   
             },
             "FindBugs Report" : {
-                withEnv(['PATH+EXTRA=/usr/sbin:/usr/bin:/sbin:/bin'])
+                
                 sh "mkdir javancss1 ; cd javancss1 ;pwd"
                 git 'https://github.com/shrini2018/jenkins-demo.git'
                 sh "cd javancss-master ; mvn findbugs:findbugs ; pwd"
